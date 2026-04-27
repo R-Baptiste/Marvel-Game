@@ -1,8 +1,8 @@
 import pygame
-from menu import *
-from sound import *
+from Codes.menu import *
+from Codes.sound import *
 
-fond = pygame.image.load('Menu/Fond_ecran.png')
+fond = pygame.image.load('Menu/Wallpaper.png')
 
 class Game():
     def __init__(self):

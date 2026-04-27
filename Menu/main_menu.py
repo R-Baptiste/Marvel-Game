@@ -1,6 +1,6 @@
 
-from game import Game
-from menu import *
+from Codes.game import Game
+from Codes.menu import *
 
 g = Game()
 

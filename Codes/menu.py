@@ -6,46 +6,46 @@ from game import *
 
 fond = pygame.image.load('Fond_ecran.png')
 
-captain = pygame.image.load('Personnages_menu/captain_america_menu.png')
+captain = pygame.image.load('Characters_menu/captain_america_menu.png')
 captain2 = pygame.transform.scale(captain, (200, 200))
 
-hulk = pygame.image.load('Personnages_menu/hulk_menu.png')
+hulk = pygame.image.load('Characters_menu/hulk_menu.png')
 hulk2 = pygame.transform.scale(hulk, (200, 200))
 
-ironman = pygame.image.load('Personnages_menu/ironman_menu.png')
+ironman = pygame.image.load('Characters_menu/ironman_menu.png')
 ironman2 = pygame.transform.scale(ironman, (200, 200))
 
-Spiderman = pygame.image.load('Personnages_menu/spiderman_menu.png')
+Spiderman = pygame.image.load('Characters_menu/spiderman_menu.png')
 Spiderman2 = pygame.transform.scale(Spiderman, (200, 200))
 
-Thor = pygame.image.load('Personnages_menu/thor_menu.png')
+Thor = pygame.image.load('Characters_menu/thor_menu.png')
 Thor2 = pygame.transform.scale(Thor, (200, 200))
 
-Groot = pygame.image.load('Personnages_menu/groot_menu.png')
+Groot = pygame.image.load('Characters_menu/groot_menu.png')
 Groot2 = pygame.transform.scale(Groot, (200, 200))
 
-Wolverine = pygame.image.load('Personnages_menu/wolverine_menu.png')
+Wolverine = pygame.image.load('Characters_menu/wolverine_menu.png')
 Wolverine2 = pygame.transform.scale(Wolverine, (200, 200))
 
-Panther = pygame.image.load('Personnages_menu/black_panther_menu.png')
+Panther = pygame.image.load('Characters_menu/black_panther_menu.png')
 Panther2 = pygame.transform.scale(Panther, (200, 200))
 
-Starlord = pygame.image.load('Personnages_menu/starlord_menu.png')
+Starlord = pygame.image.load('Characters_menu/starlord_menu.png')
 Starlord2 = pygame.transform.scale(Starlord, (200, 200))
 
-Yondu = pygame.image.load('Personnages_menu/yondu_menu.png')
+Yondu = pygame.image.load('Characters_menu/yondu_menu.png')
 Yondu2 = pygame.transform.scale(Yondu, (200, 200))
 
-Torch = pygame.image.load('Personnages_menu/torch_menu.png')
+Torch = pygame.image.load('Characters_menu/torch_menu.png')
 Torch2 = pygame.transform.scale(Torch, (200, 200))
 
-Jane = pygame.image.load('Personnages_menu/jane_storm_menu.png')
+Jane = pygame.image.load('Characters_menu/jane_storm_menu.png')
 Jane2 = pygame.transform.scale(Jane, (200, 200))
 
-Chose = pygame.image.load('Personnages_menu/chose_menu.png')
+Chose = pygame.image.load('Characters_menu/chose_menu.png')
 Chose2 = pygame.transform.scale(Chose, (200, 200))
 
-Strange = pygame.image.load('Personnages_menu/docteur_strange_menu.png')
+Strange = pygame.image.load('Characters_menu/docteur_strange_menu.png')
 Strange2 = pygame.transform.scale(Strange, (200, 200))
 
 class Menu():
@@ -158,7 +158,7 @@ class MainMenu(Menu):
             if self.state == 'Start':
                 self.game.curr_menu = self.game.Choix_Personnages_1
                 if self.game.Musique :
-                    self.game.sound_manager.bruit('Musique_lancement')
+                    self.game.sound_manager.bruit('Launch_Music')
                     #pygame.mixer.music.play(-1)  # Lecture en boucle infinie (-1)
             elif self.state == 'Options':
                 self.game.curr_menu = self.game.options
@@ -166,7 +166,7 @@ class MainMenu(Menu):
                 self.game.curr_menu = self.game.credits
             self.run_display = False
 
-class Choix_Personnage_Menu_1(Menu):
+class Character_Selection_Menu_1(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
         self.state = 'Captain_America'
@@ -182,11 +182,11 @@ class Choix_Personnage_Menu_1(Menu):
             if self.state != prev_state:
                 self.game.display.blit(fond, (0, 0))
 
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 249)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 251)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2 + 3, self.game.DISPLAY_H / 2 - 250)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 250)
-                self.game.draw_text_white('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 249)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 251)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2 + 3, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_white('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 250)
 
                 self.game.draw_text_black("Captain America", 30, self.game.DISPLAY_W / 3 + self.offset, self.game.DISPLAY_H / 3 - 2)
                 self.game.draw_text_black("Captain America", 30, self.game.DISPLAY_W / 3 + self.offset, self.game.DISPLAY_H / 3 + 2)
@@ -601,11 +601,11 @@ class Choix_Personnage_Menu_1(Menu):
                 pygame.mixer.music.stop()
                 self.run_display = False
             if self.game.Musique :
-                self.game.sound_manager.bruit("Au_Combat")
+                self.game.sound_manager.bruit("To_Battle")
             return self.game_personnage
 
 
-class Choix_Personnage_Menu_2(Menu):
+class Character_Selection_Menu_2(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
         self.state = 'Captain_America'
@@ -621,11 +621,11 @@ class Choix_Personnage_Menu_2(Menu):
             if self.state != prev_state:
                 self.game.display.blit(fond, (0, 0))
 
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 249)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 251)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2 + 3, self.game.DISPLAY_H / 2 - 250)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 250)
-                self.game.draw_text_white('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 249)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 251)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2 + 3, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_white('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 250)
 
                 self.game.draw_text_black("Captain America", 30, self.game.DISPLAY_W / 3 + self.offset, self.game.DISPLAY_H / 3 - 2)
                 self.game.draw_text_black("Captain America", 30, self.game.DISPLAY_W / 3 + self.offset, self.game.DISPLAY_H / 3 + 2)
@@ -1041,10 +1041,10 @@ class Choix_Personnage_Menu_2(Menu):
                 pygame.mixer.music.stop()
                 self.run_display = False
             if self.game.Musique :
-                self.game.sound_manager.bruit("En_avant")
+                self.game.sound_manager.bruit("Forward")
             return self.game_personnage
             
-class Choix_Personnage_Menu_3(Menu):
+class Character_Selection_Menu_3(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
         self.state = 'Captain_America'
@@ -1060,11 +1060,11 @@ class Choix_Personnage_Menu_3(Menu):
             if self.state != prev_state:
                 self.game.display.blit(fond, (0, 0))
             
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 249)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 251)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2 + 3, self.game.DISPLAY_H / 2 - 250)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 250)
-                self.game.draw_text_white('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 249)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 251)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2 + 3, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_white('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 250)
 
                 self.game.draw_text_black("Captain America", 30, self.game.DISPLAY_W / 3 + self.offset, self.game.DISPLAY_H / 3 - 2)
                 self.game.draw_text_black("Captain America", 30, self.game.DISPLAY_W / 3 + self.offset, self.game.DISPLAY_H / 3 + 2)
@@ -1478,10 +1478,10 @@ class Choix_Personnage_Menu_3(Menu):
                 pygame.mixer.music.stop()
                 self.run_display = False
             if self.game.Musique :
-                self.game.sound_manager.bruit("Ecrasons_ennemi")
+                self.game.sound_manager.bruit("Crush_Enemy")
             return self.game_personnage
 
-class Choix_Personnage_Menu_4(Menu):
+class Character_Selection_Menu_4(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
         self.state = 'Captain_America'
@@ -1497,11 +1497,11 @@ class Choix_Personnage_Menu_4(Menu):
             if self.state != prev_state:
                 self.game.display.blit(fond, (0, 0))
 
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 249)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 251)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2 + 3, self.game.DISPLAY_H / 2 - 250)
-                self.game.draw_text_black('Choix personnage', 100, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 250)
-                self.game.draw_text_white('Choix personnage', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 249)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 251)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2 + 3, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_black('Character selection', 100, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 250)
+                self.game.draw_text_white('Character selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 250)
 
                 self.game.draw_text_black("Captain America", 30, self.game.DISPLAY_W / 3 + self.offset, self.game.DISPLAY_H / 3 - 2)
                 self.game.draw_text_black("Captain America", 30, self.game.DISPLAY_W / 3 + self.offset, self.game.DISPLAY_H / 3 + 2)
@@ -1906,10 +1906,10 @@ class Choix_Personnage_Menu_4(Menu):
                 pygame.mixer.music.stop()
                 self.run_display = False
             if self.game.Musique :
-                self.game.sound_manager.bruit("A_vos_ordres")
+                self.game.sound_manager.bruit("At_Your_Orders")
             return self.game_personnage
 
-class Choix_Carte_Menu(Menu):
+class Map_Selection_Menu(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
         self.state = 'Yes'
@@ -1925,11 +1925,11 @@ class Choix_Carte_Menu(Menu):
                 self.game.curr_menu = self.game.main_menu
             self.check_input()
             self.game.display.blit(fond, (0, 0))
-            self.game.draw_text_black('Choix carte', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 229)
-            self.game.draw_text_black('Choix carte', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 231)
-            self.game.draw_text_black('Choix carte', 100, self.game.DISPLAY_W / 2 + 3, self.game.DISPLAY_H / 2 - 230)
-            self.game.draw_text_black('Choix carte', 100, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 230)
-            self.game.draw_text_white('Choix carte', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 230)
+            self.game.draw_text_black('Map selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 229)
+            self.game.draw_text_black('Map selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 231)
+            self.game.draw_text_black('Map selection', 100, self.game.DISPLAY_W / 2 + 3, self.game.DISPLAY_H / 2 - 230)
+            self.game.draw_text_black('Map selection', 100, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 230)
+            self.game.draw_text_white('Map selection', 100, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 230)
 
             self.game.draw_text_black("Yes", 50, self.volx, self.voly - 2)
             self.game.draw_text_black("Yes", 50, self.volx, self.voly + 2)
@@ -2107,7 +2107,7 @@ class Volume(Menu):
 class Mode(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
-        self.state = '1_Joueur'
+        self.state = '1_Player'
         self.volx, self.voly = self.mid_w, self.mid_h
         self.backx, self.backy = self.mid_w, self.mid_h + 60
         self.cursor_rect.midtop = (self.backx + self.offset - 100, self.voly  + 10)
@@ -2127,17 +2127,17 @@ class Mode(Menu):
             self.game.draw_text_black('Mode', 150, self.game.DISPLAY_W / 2 - 3, self.game.DISPLAY_H / 2 - 230)
             self.game.draw_text_white('Mode', 150, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 230)
 
-            self.game.draw_text_black("1 Joueur VS IA", 50, self.volx, self.voly - 2)
-            self.game.draw_text_black("1 Joueur VS IA", 50, self.volx, self.voly + 2)
-            self.game.draw_text_black("1 Joueur VS IA", 50, self.volx - 2, self.voly)
-            self.game.draw_text_black("1 Joueur VS IA", 50, self.volx + 2, self.voly)
-            self.game.draw_text_white("1 Joueur VS IA", 50, self.volx, self.voly)
+            self.game.draw_text_black("1 Player VS AI", 50, self.volx, self.voly - 2)
+            self.game.draw_text_black("1 Player VS AI", 50, self.volx, self.voly + 2)
+            self.game.draw_text_black("1 Player VS AI", 50, self.volx - 2, self.voly)
+            self.game.draw_text_black("1 Player VS AI", 50, self.volx + 2, self.voly)
+            self.game.draw_text_white("1 Player VS AI", 50, self.volx, self.voly)
 
-            self.game.draw_text_black("2 Joueurs", 50, self.backx, self.backy - 2)
-            self.game.draw_text_black("2 Joueurs", 50, self.backx, self.backy + 2)
-            self.game.draw_text_black("2 Joueurs", 50, self.backx - 2, self.backy)
-            self.game.draw_text_black("2 Joueurs", 50, self.backx + 2, self.backy)
-            self.game.draw_text_white("2 Joueurs", 50, self.backx, self.backy)
+            self.game.draw_text_black("2 Players", 50, self.backx, self.backy - 2)
+            self.game.draw_text_black("2 Players", 50, self.backx, self.backy + 2)
+            self.game.draw_text_black("2 Players", 50, self.backx - 2, self.backy)
+            self.game.draw_text_black("2 Players", 50, self.backx + 2, self.backy)
+            self.game.draw_text_white("2 Players", 50, self.backx, self.backy)
 
             self.game.draw_text_black("Back", 50, self.backx, self.backy + 58)
             self.game.draw_text_black("Back", 50, self.backx, self.backy + 62)
@@ -2165,35 +2165,35 @@ class Mode(Menu):
 
     def move_cursor(self):
         if self.game.DOWN_KEY:
-            if self.state == '1_Joueur':
-                self.state = '2_Joueurs'
+            if self.state == '1_Player':
+                self.state = '2_Players'
                 if self.game.Musique :
                     self.game.sound_manager.bruit('Blop')
                 self.cursor_rect.midtop = (self.backx + self.offset - 50, self.backy + 10)
-            elif self.state == '2_Joueurs':
+            elif self.state == '2_Players':
                 self.state = 'Back'
                 if self.game.Musique :
                     self.game.sound_manager.bruit('Blop')
                 self.cursor_rect.midtop = (self.backx + self.offset- 50, self.backy + 70)
             elif self.state == 'Back':
-                self.state = '1_Joueur'
+                self.state = '1_Player'
                 if self.game.Musique :
                     self.game.sound_manager.bruit('Blop')
                 self.cursor_rect.midtop = (self.backx + self.offset- 100, self.voly + 10)
             
         elif self.game.UP_KEY :
-            if self.state == '1_Joueur':
+            if self.state == '1_Player':
                 self.state = 'Back'
                 if self.game.Musique :
                     self.game.sound_manager.bruit('Blop')
                 self.cursor_rect.midtop = (self.backx + self.offset- 50, self.backy + 70)
-            elif self.state == '2_Joueurs':
-                self.state = '1_Joueur'
+            elif self.state == '2_Players':
+                self.state = '1_Player'
                 if self.game.Musique :
                     self.game.sound_manager.bruit('Blop')
                 self.cursor_rect.midtop = (self.backx + self.offset- 100, self.voly + 10)
             elif self.state == 'Back':
-                self.state = '2_Joueurs'
+                self.state = '2_Players'
                 if self.game.Musique :
                     self.game.sound_manager.bruit('Blop')
                 self.cursor_rect.midtop = (self.backx + self.offset- 50, self.backy + 10)
@@ -2201,10 +2201,10 @@ class Mode(Menu):
     def check_input(self):
         self.move_cursor()
         if self.game.START_KEY:
-            if self.state == '1_Joueur':
-                self.game.Mode_jeu = True         
-            elif self.state == '2_Joueurs':
-                self.game.Mode_jeu = False
+            if self.state == '1_Player':
+                self.game.game_mode = True         
+            elif self.state == '2_Players':
+                self.game.game_mode = False
             elif self.state == 'Back':
                 self.game.curr_menu = self.game.options
             self.run_display = False

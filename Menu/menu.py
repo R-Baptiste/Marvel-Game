@@ -1,6 +1,6 @@
 import pygame
-from sound import SoundManager
-from game import *
+from Codes.sound import SoundManager
+from Codes.game import *
 
 fond = pygame.image.load('Fond_ecran.png')
 
