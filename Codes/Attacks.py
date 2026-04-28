@@ -1,9 +1,13 @@
 """ SKILL CLASSES """
 
 import random
-from unit import Unit
 
-class No_Action(Unit) :
+class BaseAttack:
+    """Lightweight base class for all attacks."""
+    pass
+
+
+class No_Action(BaseAttack) :
     def __init__(self) :
         self.name = "No_Action"
         self.offsets = [
@@ -14,7 +18,7 @@ class No_Action(Unit) :
         self.distance_attack = 1
         self.chance = 0
 
-class Fists(Unit) :
+class Fists(BaseAttack) :
     def __init__(self) :
         self.name = "Fists"
         self.offsets = [
@@ -26,7 +30,7 @@ class Fists(Unit) :
         self.distance_attack = 1
         self.chance = random.uniform(0.5, 1)
 
-class Claws(Unit) :
+class Claws(BaseAttack) :
     def __init__(self):
         self.name = "Claws"
         self.offsets = [
@@ -38,7 +42,7 @@ class Claws(Unit) :
         self.distance_attack = 2
         self.chance = random.uniform(0.5, 1)
 
-class Shield_Throw(Unit) :
+class Shield_Throw(BaseAttack) :
     def __init__(self):
         self.name = "Shield_Throw"
         self.offsets = [
@@ -51,7 +55,7 @@ class Shield_Throw(Unit) :
         self.distance_attack = 3
         self.chance = random.uniform(0.5, 1)
 
-class Break_Defenses(Unit) :
+class Break_Defenses(BaseAttack) :
     def __init__(self):
         self.name = "Break_Defenses"
         self.offsets = [
@@ -62,7 +66,7 @@ class Break_Defenses(Unit) :
         self.quantite = 1
         self.distance_attack = 1
         self.chance = random.uniform(0.5, 1)     
-class Laser(Unit) :
+class Laser(BaseAttack) :
     def __init__(self):
         self.name = "Laser"
         self.offsets = [
@@ -78,7 +82,7 @@ class Laser(Unit) :
         self. quantite = 1
         self.distance_attack = 5
         self.chance = random.uniform(0.5, 1)       
-class Missile (Unit):
+class Missile (BaseAttack):
     def __init__(self):
         self.name = "Missile"
         self.offsets = [
@@ -94,7 +98,7 @@ class Missile (Unit):
         self.quantite = 1
         self.distance_attack = 5
         self.chance = random.uniform(0.5, 1)
-class Block_Opponent (Unit):
+class Block_Opponent (BaseAttack):
     def __init__(self):
         self.name = "Block_Opponent"
         self.offsets = [
@@ -111,7 +115,7 @@ class Block_Opponent (Unit):
         self.distance_attack = 4
         self.chance = random.uniform(0.5, 1)        
 
-class Web_Attack (Unit):
+class Web_Attack (BaseAttack):
     def __init__(self):
         self.name = "Web_Attack"
         self.offsets = [
@@ -125,7 +129,7 @@ class Web_Attack (Unit):
         self.quantite = 3
         self.distance_attack = 3
         self.chance = random.uniform(0.5, 1)
-class Hammer (Unit):
+class Hammer (BaseAttack):
     def __init__(self):
         self.name = "Hammer"
         self.offsets = [
@@ -141,7 +145,7 @@ class Hammer (Unit):
         self.quantite = 1
         self.distance_attack = 5
         self.chance = random.uniform(0.5, 1)        
-class Lightning (Unit):
+class Lightning (BaseAttack):
     def __init__(self):
         self.name = "Lightning"
         self.offsets = [
@@ -157,7 +161,7 @@ class Lightning (Unit):
         self.quantite = 1
         self.distance_attack = 6
         self.chance = random.uniform(0.5, 1)
-class Branch_Attack(Unit) :
+class Branch_Attack(BaseAttack) :
     def __init__(self):
         self.name = "Branch_Attack"
         self.offsets = [
@@ -171,7 +175,7 @@ class Branch_Attack(Unit) :
         self.distance_attack = 3
         self.chance = random.uniform(0.5, 1)
 
-class Protection (Unit):
+class Protection (BaseAttack):
     def __init__(self):
         self.name = "Protection"
         self.offsets = [
@@ -185,7 +189,7 @@ class Protection (Unit):
         self.distance_attack = 1
         self.chance = random.uniform(0.5, 1)
         
-class Guns(Unit) :
+class Guns(BaseAttack) :
     def __init__(self):
         self.name = "Guns"
         self.offsets = [
@@ -202,7 +206,7 @@ class Guns(Unit) :
         self.distance_attack = 4
         self.chance = random.uniform(0.5, 1)
 
-class Yaka_Arrow(Unit) :
+class Yaka_Arrow(BaseAttack) :
     def __init__(self):
         self.name = "Yaka_Arrow"
         self.offsets = [
@@ -224,7 +228,7 @@ class Yaka_Arrow(Unit) :
         self.distance_attack = 1
         self.chance = random.uniform(0.5, 1)
 
-class Fireball (Unit):
+class Fireball (BaseAttack):
     def __init__(self):
         self.name = "Fireball"
         self.offsets = [(-5, 0), (5, 0), (0, -5), (0, 5),
@@ -241,7 +245,7 @@ class Fireball (Unit):
         self.distance_attack = 5
         self.chance = random.uniform(0.5, 1)
       
-class Heal (Unit):
+class Heal (BaseAttack):
     def __init__(self):
         self.name = "Heal"
         self.offsets = [
@@ -253,7 +257,7 @@ class Heal (Unit):
         self.distance_attack = 1
         self.chance = random.uniform(0.5, 1)
         
-class Projectile(Unit) :
+class Projectile(BaseAttack) :
     def __init__(self):
         self.name = "Projectile"
         self.offsets = [

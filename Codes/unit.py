@@ -1,5 +1,6 @@
 import pygame
 import random
+from Attacks import *
 
 
 # Constantes
@@ -43,11 +44,11 @@ class Unit():
         self.attack_power = 0
         self.red_cases = []
         self.offsets = []
-        self.attaque_selectionne = "No_Action"
+        self.selected_attack = No_Action()
         self.is_selected = False # variable used in the draw() method to display the character
-        self.cases=[]
+        self.cases = []
         self.distance_maxi_attack = 1
-        self.attaque_selectionne_index = 0  # Indice de l'attaque sélectionnée
+        self.selected_attack_index = 0  # Index of the selected attack
         self.game = game
         self.image = pygame.Surface(size)
         self.green_cases=[]
@@ -179,69 +180,40 @@ class Unit():
 
 
     def update_red_case(self, attack): # method to update attack cells
-        self.red_cases=[] # reset red cells to avoid keeping old ones
-        self.red_cases.append((self.x, self.y)) # add the initial cell where the player is
-        
-        if attack == "No_Action":
-            self.attaque_selectionne = Aucune_action()
+        self.red_cases = []  # reset red cells to avoid keeping old ones
+        self.red_cases.append((self.x, self.y))  # add the initial cell where the player is
 
-        if attack == "Fists" :
-            self.attaque_selectionne = Poings()
-        
-        elif attack == "Claws" :
-            self.attaque_selectionne = Griffes()
+        attack_map = {
+            "No_Action":      No_Action,
+            "Fists":          Fists,
+            "Claws":          Claws,
+            "Shield_Throw":   Shield_Throw,
+            "Break_Defenses": Break_Defenses,
+            "Laser":          Laser,
+            "Missile":        Missile,
+            "Block_Opponent": Block_Opponent,
+            "Web_Attack":     Web_Attack,
+            "Hammer":         Hammer,
+            "Lightning":      Lightning,
+            "Branch_Attack":  Branch_Attack,
+            "Protection":     Protection,
+            "Guns":           Guns,
+            "Yaka_Arrow":     Yaka_Arrow,
+            "Fireball":       Fireball,
+            "Heal":           Heal,
+            "Projectile":     Projectile,
+        }
 
-        elif attack == "Shield_Throw" :
-            self.attaque_selectionne = Lancer_bouclier()
-
-        elif attack == "Break_Defenses" :
-            self.attaque_selectionne = Briser_les_defenses()
-        
-        elif attack == "Laser" :
-            self.attaque_selectionne = Laser()
-        
-        elif attack == "Missile":
-            self.attaque_selectionne = Missile()
-        
-        elif attack == "Block_Opponent":
-            self.attaque_selectionne = Bloquer_adversaire()
-
-        elif attack == "Web_Attack":
-            self.attaque_selectionne = Attaque_toile()
-        
-        elif attack == "Hammer":
-            self.attaque_selectionne = Marteau()
-        
-        elif attack == "Lightning":
-            self.attaque_selectionne = Foudre()
-        
-        elif attack == "Branch_Attack":
-            self.attaque_selectionne = Attaque_branche()
-        
-        elif attack == "Protection":
-            self.attaque_selectionne = Protection()
-        
-        elif attack == "Guns":
-            self.attaque_selectionne = Pistolets()
-        
-        elif attack == "Yaka_Arrow":
-            self.attaque_selectionne = Fleche_yaka()
-
-        elif attack == "Fireball":
-            self.attaque_selectionne = Boule_de_feu()
-
-        elif attack == "Heal":
-            self.attaque_selectionne = Soigner()
-
-        elif attack == "Projectile":
-            self.attaque_selectionne = Projectile()
-          
+        attack_class = attack_map.get(attack)
+        if attack_class is not None:
+            self.selected_attack = attack_class()
+        else:
+            raise ValueError(f"Unrecognized attack: {attack}")
 
         if self.is_selected:
-
-            for dx, dy in self.attaque_selectionne.offsets:
-                # Calcul des coordonnées de la case
-                red_x = self.x + dx 
+            for dx, dy in self.selected_attack.offsets:
+                # Calculate cell coordinates
+                red_x = self.x + dx
                 red_y = self.y + dy
 
                 # FIRST CHECK: Verify the cell is within the grid boundaries
@@ -469,94 +441,94 @@ class Unit():
 
     def assign_attack_class(self, indice) : # method to create skill instances 
         if self.list_attaques[indice] == "No_Action" :
-            attaque_selectionne = Aucune_action()
-            if self.game.Musique :
+            attaque_selectionne = No_Action()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Attendre")
                                 
         elif self.list_attaques[indice] == "Fists" :
-            attaque_selectionne = Poings()
-            if self.game.Musique :
+            attaque_selectionne = Fists()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Combat")
         
         elif self.list_attaques[indice] == "Claws" :
-            attaque_selectionne = Griffes()
-            if self.game.Musique :
+            attaque_selectionne = Claws()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Claws")
 
 
         elif self.list_attaques[indice] == "Shield_Throw" :
-            attaque_selectionne = Lancer_bouclier()
-            if self.game.Musique :
+            attaque_selectionne = Shield_Throw()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Boomerang")
 
         elif self.list_attaques[indice] == "Break_Defenses" :
-            attaque_selectionne = Briser_les_defenses()
-            if self.game.Musique :
+            attaque_selectionne = Break_Defenses()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Casser_mur")
         
         elif self.list_attaques[indice] == "Laser" :
             attaque_selectionne = Laser()
-            if self.game.Musique :
+            if self.game.Music :
                 self.game.sound_manager.bruit("Laser")
         
         elif self.list_attaques[indice] == "Missile":
             attaque_selectionne = Missile()
-            if self.game.Musique :
+            if self.game.Music :
                 self.game.sound_manager.bruit("Explosion")
         
         elif self.list_attaques[indice] == "Block_Opponent":
-            attaque_selectionne = Bloquer_adversaire()
-            if self.game.Musique :
+            attaque_selectionne = Block_Opponent()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Combat_v3")
 
         elif self.list_attaques[indice] == "Web_Attack":
-            attaque_selectionne = Attaque_toile()
-            if self.game.Musique :
+            attaque_selectionne = Web_Attack()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Pistolet_silencieux")
         
         elif self.list_attaques[indice] == "Hammer":
-            attaque_selectionne = Marteau()
-            if self.game.Musique :
+            attaque_selectionne = Hammer()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Coup_marteau")
         
         elif self.list_attaques[indice] == "Lightning":
-            attaque_selectionne = Foudre()
-            if self.game.Musique :
+            attaque_selectionne = Lightning()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Foudre_v2")
         
         elif self.list_attaques[indice] == "Branch_Attack":
-            attaque_selectionne = Attaque_branche()
-            if self.game.Musique :
+            attaque_selectionne = Branch_Attack()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Combat_v4")
         
         elif self.list_attaques[indice] == "Protection":
             attaque_selectionne = Protection()
-            if self.game.Musique :
+            if self.game.Music :
                 self.game.sound_manager.bruit("Protection")
         
         elif self.list_attaques[indice] == "Guns":
-            attaque_selectionne = Pistolets()
-            if self.game.Musique :
+            attaque_selectionne = Guns()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Tir_rafale_v2")
         
         elif self.list_attaques[indice] == "Yaka_Arrow":
-            attaque_selectionne = Fleche_yaka()
-            if self.game.Musique :
+            attaque_selectionne = Yaka_Arrow()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Fleche")
 
         elif self.list_attaques[indice] == "Fireball":
-            attaque_selectionne = Boule_de_feu()
-            if self.game.Musique :
+            attaque_selectionne = Fireball()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Boule_feu")
 
         elif self.list_attaques[indice] == "Heal":
-            attaque_selectionne = Soigner()
-            if self.game.Musique :
+            attaque_selectionne = Heal()
+            if self.game.Music :
                 self.game.sound_manager.bruit("Soin")
 
         elif self.list_attaques[indice] == "Projectile":
             attaque_selectionne = Projectile()
-            if self.game.Musique :
+            if self.game.Music :
                 self.game.sound_manager.bruit("Projectile")
         else:
             raise ValueError(f"Unrecognized attack: {self.list_attaques[indice]}")
