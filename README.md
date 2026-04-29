@@ -1,31 +1,54 @@
-# Projet Python de Master 1
-Utilisation du module pygame.
-Jeu tour à tour de combat en équipes, avec compétences sur une map 2D.
-Nous avons décidé d'utiliser l'univers Marvel.
-Voilà une photo de l'écran du menu une fois le jeu lancé.
-<img width="1218" alt="Capture d’écran 2024-12-11 à 00 38 05" src="https://github.com/user-attachments/assets/7512ed5d-0669-46a6-9eda-3f0ae8c5a445">
 
-Dans la section Start Game :
-- Il y aura un choix de 14 personnages avec des compétences et des designs différents. A vous de composer la meilleure équipe pour gagner à tous les coups. Les deux premiers choix seront pour le premier joueur, les deux suivants pour l'IA ou le deuxième joueur.
-- Il y a la possibilité de prendre 4 fois le même personnage ou de revenir à l'écran d'accueil pour changer des options de jeu.
-- Utilisation de la touche Entrée pour valider le choix d'un personnage.
-  
-Dans la section Options :
-- Il est possible via le menu de choisir d'utiliser le son (ce qui permet une expérience plus immersive du jeu) ou de l'enlever.
-- Il est aussi possible de choisir le mode de jeu : un joueur contre une IA ou un joueur contre un autre joueur.
-  
-Dans la section Credits :
-- Nous avons le nom de tous les contributeurs à la conception et réalisation du jeu.
+# Improvements : 
 
-  Pour jouer :
-  - Utilisation des flèches pour vous déplacer et choisir les compétences à utiliser.
-  - Utilisation de la barre d'espace pour valider un déplacement.
-  - Utilisation de la touche Entrée pour valider une compétence.
-  
-  La carte contient des informations sur les cases spéciales (Téléportation, Soin, Dégât).
-  Les cases vertes montrent les déplacements possibles et les cases rouges les attaques.
-  Les barres de vie bleues deviennent rouge au fur et à mesure que les personnages perdent des points de vie.
-  
+Create multiple maps and add a map selection option at the start of the game.
+Add new attacks, background music, and character images.
+Sync character sprites with their movements on the map.
+Display real-time battle descriptions (e.g., "Player 1 uses attack and hits Player 2").
+Allow rematching after a game ends.
+Improve the AI opponent’s logic for smarter gameplay.
 
-  Nous vous souhaitons de passer un très bon moment !
+
+
+
+# Master 1 Python Project
+
+Using the pygame module.
+A turn-based team combat game with special abilities on a 2D map.
+We chose the Marvel universe as our theme.
+Here’s a screenshot of the game’s menu screen when launched:
+<img width="1218" alt="Screenshot 2024-12-11 at 00:38:05" src="https://github.com/user-attachments/assets/7512ed5d-0669-46a6-9eda-3f0ae8c5a445">
+
+Start Game Section :
+
+You can choose from 14 unique characters, each with distinct abilities and designs. Your goal is to build the best team to win every match.
+The first two selections are for Player 1, and the next two are for the AI or Player 2.
+You can select the same character up to 4 times or return to the home screen to adjust game settings.
+Press Enter to confirm your character choice.
+
+
+Options Section :
+Toggle sound on/off for a more immersive gaming experience.
+Choose the game mode: Single-player (vs. AI) or Multiplayer (PvP).
+
+Credits Section :
+Lists all contributors involved in the game’s design and development.
+
+How to Play : 
+Use the arrow keys to move and select abilities.
+Press the Spacebar to confirm a movement.
+Press Enter to confirm an ability.
+
+The map includes special tiles with unique effects:
+Green tiles: Possible movement areas.
+Red tiles: Attack range.
+Blue health bars: Turn red as characters lose health.
+
+Special tiles include:
+Teleportation
+Healing
+Damage
+
+We hope you have a great time playing!
+
   
